@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:payments_getway/core/utils/assets.dart';
-import 'package:payments_getway/core/utils/widgets/custom_button.dart';
+import 'package:payments_getway/models/products_model.dart';
 
 import 'payment_way_item.dart';
+import 'payment_ways_button.dart';
 
 class PaymentWaysBottomSheet extends StatefulWidget {
-  const PaymentWaysBottomSheet({super.key});
+  const PaymentWaysBottomSheet({super.key, required this.productsModel});
+  final ProductsModel productsModel;
 
   @override
   State<PaymentWaysBottomSheet> createState() => _PaymentWaysBottomSheetState();
@@ -52,14 +54,8 @@ class _PaymentWaysBottomSheetState extends State<PaymentWaysBottomSheet> {
                   isActive: activeIndex == 2),
             ],
           ),
-          CustomButton(
-              buttonHeight: 50,
-              buttonName: activeIndex == 0
-                  ? 'Pay using card'
-                  : activeIndex == 1
-                      ? 'Pay using paypal'
-                      : 'Pay using paymob',
-              onPressed: () async {}),
+          PaymentWaysButton(
+              activeIndex: activeIndex, productsModel: widget.productsModel),
           const SizedBox(height: 12),
         ],
       ),

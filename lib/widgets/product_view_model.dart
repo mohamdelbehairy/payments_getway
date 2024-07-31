@@ -42,7 +42,8 @@ class ProductViewBody extends StatelessWidget {
               onPressed: () => showModalBottomSheet(
                   context: context,
                   backgroundColor: Colors.white,
-                  builder: (context) => const PaymentWaysBottomSheet())),
+                  builder: (context) =>
+                      PaymentWaysBottomSheet(productsModel: productsModel))),
           const SizedBox(height: 28),
         ],
       ),

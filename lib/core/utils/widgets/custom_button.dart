@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:payments_getway/core/utils/widgets/custom_circle_indicator.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton(
       {super.key,
       required this.buttonName,
       required this.onPressed,
-      this.buttonHeight});
+      this.buttonHeight,
+      this.isLoading = false});
   final String buttonName;
   final Function() onPressed;
   final double? buttonHeight;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +23,12 @@ class CustomButton extends StatelessWidget {
         highlightColor: Colors.transparent,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
         onPressed: onPressed,
-        child: Text(buttonName,
-            style: const TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-                fontWeight: FontWeight.normal)));
+        child: isLoading
+            ? const CustomCircleIndicator(color: Colors.white)
+            : Text(buttonName,
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.normal)));
   }
 }
