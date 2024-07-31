@@ -1,11 +1,10 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:payments_getway/core/utils/helper/pay_using_paypal.dart';
 import 'package:payments_getway/manager/strip_payment/strip_payment_cubit.dart';
-import 'package:payments_getway/models/payment_intent_input.dart';
 import 'package:payments_getway/models/products_model.dart';
 
+import '../core/utils/helper/pay_using_card.dart';
 import '../core/utils/widgets/custom_button.dart';
 
 class PaymentWaysButton extends StatelessWidget {
@@ -36,12 +35,10 @@ class PaymentWaysButton extends StatelessWidget {
                     ? 'Pay using paypal'
                     : 'Pay using paymob',
             onPressed: () async {
-              log('Price: ${productsModel.price}, Type: ${productsModel.price.runtimeType}');
               if (activeIndex == 0) {
-                await BlocProvider.of<StripPaymentCubit>(context).makePayment(
-                    paymentIntentInput: PaymentIntentInput(
-                        amount: (productsModel.price * 100).toInt(),
-                        currency: "USD"));
+                await payUsingCard(context, productsModel);
+              } else if (activeIndex == 1) {
+                payUsingPaypal(context: context, productModel: productsModel);
               }
             });
       },

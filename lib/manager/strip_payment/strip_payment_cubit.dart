@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:payments_getway/core/service/strip_service.dart';
 
-import '../../models/payment_intent_input.dart';
+import '../../models/strip_model/payment_intent_input.dart';
 
 part 'strip_payment_state.dart';
 

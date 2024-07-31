@@ -1,7 +1,7 @@
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:payments_getway/core/service/api_service.dart';
-import 'package:payments_getway/models/payment_intent_input.dart';
-import 'package:payments_getway/models/payment_intent_output.dart';
+import 'package:payments_getway/models/strip_model/payment_intent_input.dart';
+import 'package:payments_getway/models/strip_model/payment_intent_output.dart';
 
 class StripService {
   final ApiService apiService = ApiService();

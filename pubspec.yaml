@@ -34,8 +34,9 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
-  flutter_svg: ^2.0.10+1
+  flutter_paypal_payment: ^1.0.6
   flutter_stripe: ^8.0.0+1
+  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   flutter_lints: ^3.0.0
@@ -82,4 +83,4 @@ flutter_assets:
   assets_path: assets/images
   output_path: lib/core/utils
   filename: assets.dart
-  field_prefix:
+  field_prefix: null
