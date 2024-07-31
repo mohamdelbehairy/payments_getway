@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:payments_getway/core/utils/api_keys.dart';
+import 'package:payments_getway/core/utils/api_key.dart';
 
 class ApiService {
   final dio = Dio();
@@ -15,7 +15,7 @@ class ApiService {
         options: Options(
           contentType: Headers.formUrlEncodedContentType,
           headers: {
-            'Authorization': 'Bearer ${ApiKeys.secretKey}',
+            'Authorization': 'Bearer ${ApiKey.secretKey}',
           },
         ));
     return response;

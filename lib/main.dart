@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
-import 'package:payments_getway/core/utils/api_keys.dart';
+import 'package:payments_getway/core/utils/api_key.dart';
 
 import 'core/service/get_products_service.dart';
 import 'core/utils/bloc_observer.dart';
@@ -10,7 +10,7 @@ import 'views/home_view.dart';
 
 void main() async {
   Bloc.observer = SimpleBlocObserver();
-  Stripe.publishableKey = ApiKeys.publishableKey;
+  Stripe.publishableKey = ApiKey.publishableKey;
   runApp(const MyApp());
 }
 
