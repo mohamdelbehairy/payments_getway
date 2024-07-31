@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "624022406296",
+    "project_id": "payment-getways",
+    "storage_bucket": "payment-getways.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624022406296:android:56e43dc3ef603ed79fbced",
+        "android_client_info": {
+          "package_name": "com.example.payments_getway"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDH3rOwNI8tuq-6iknJUYSo5QOSLNx-lxw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
