@@ -2,9 +2,10 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
-import 'package:payments_getway/models/paypal_model/amount_model.dart';
-import 'package:payments_getway/models/paypal_model/item_list_model.dart';
+import 'package:payments_getway/models/paypal_models/amount_model.dart';
+import 'package:payments_getway/models/paypal_models/item_list_model.dart';
 import 'package:payments_getway/models/products_model.dart';
+import 'package:payments_getway/views/success_view.dart';
 
 import '../api_key.dart';
 
@@ -25,9 +26,11 @@ void payUsingPaypal(
         }
       ],
       note: "Contact us for any questions on your order.",
-      onSuccess: (Map params) async {
-        log("onSuccess: $params");
+      onSuccess: (Map params) {
         Navigator.pop(context);
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => SuccessView(productsModel: productModel)));
+        log("onSuccess: $params");
       },
       onError: (error) {
         log("onError: $error");

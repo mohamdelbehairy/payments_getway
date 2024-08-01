@@ -2,10 +2,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:payments_getway/core/service/currency_service.dart';
 import 'package:payments_getway/core/service/google_auth_service.dart';
+import 'package:payments_getway/core/service/paymob_service.dart';
 import 'package:payments_getway/core/utils/api_key.dart';
 import 'package:payments_getway/firebase_options.dart';
+import 'package:payments_getway/manager/currency/currency_cubit.dart';
 import 'package:payments_getway/manager/google_auth/google_auth_cubit.dart';
+import 'package:payments_getway/manager/paymob_payment/paymob_payment_cubit.dart';
 import 'package:payments_getway/views/home_view.dart';
 import 'package:payments_getway/views/login_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,7 +26,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   Bloc.observer = SimpleBlocObserver();
-  Stripe.publishableKey = ApiKey.publishableKey;
+  Stripe.publishableKey = ApiKey.stripPublishableKey;
   await _init();
 }
 
@@ -44,7 +48,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
             create: (context) => GetProductsCubit(GetProductsService())),
         BlocProvider(create: (context) => StripPaymentCubit(StripService())),
-        BlocProvider(create: (context) => GoogleAuthCubit(GoogleAuthService()))
+        BlocProvider(create: (context) => GoogleAuthCubit(GoogleAuthService())),
+        BlocProvider(create: (context) => PaymobPaymentCubit(PaymobService())),
+        BlocProvider(create: (context) => CurrencyCubit(CurrencyService()))
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

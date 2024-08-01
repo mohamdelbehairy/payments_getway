@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:payments_getway/core/service/api_service.dart';
-import 'package:payments_getway/models/strip_model/create_customer_model.dart';
-import 'package:payments_getway/models/strip_model/epemeral_key_model.dart';
-import 'package:payments_getway/models/strip_model/init_payment_model.dart';
-import 'package:payments_getway/models/strip_model/payment_intent_input.dart';
-import 'package:payments_getway/models/strip_model/payment_intent_output.dart';
+import 'package:payments_getway/models/strip_models/create_customer_model.dart';
+import 'package:payments_getway/models/strip_models/epemeral_key_model.dart';
+import 'package:payments_getway/models/strip_models/init_payment_model.dart';
+import 'package:payments_getway/models/strip_models/payment_intent_input.dart';
+import 'package:payments_getway/models/strip_models/payment_intent_output.dart';
 
 import '../utils/api_key.dart';
 
@@ -40,7 +40,7 @@ class StripService {
     var response = await apiService.post(
       url: 'https://api.stripe.com/v1/ephemeral_keys',
       headers: {
-        'Authorization': 'Bearer ${ApiKey.secretKey}',
+        'Authorization': 'Bearer ${ApiKey.stripSecretKey}',
         'Stripe-Version': '2024-06-20'
       },
       body: {

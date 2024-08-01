@@ -38,8 +38,8 @@ class SuccessView extends StatelessWidget {
                     style:
                         TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                 Text(r'$' + productsModel.price.toString(),
-                    style:
-                        const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                    style: const TextStyle(
+                        fontSize: 24, fontWeight: FontWeight.bold)),
               ],
             )
           ],
