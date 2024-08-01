@@ -9,14 +9,15 @@ class ApiService {
     return response;
   }
 
-  Future<Response> post({required String url, required body}) async {
+  Future<Response> post(
+      {required String url,
+      required body,
+      Map<String, dynamic>? headers}) async {
     var response = await dio.post(url,
         data: body,
         options: Options(
           contentType: Headers.formUrlEncodedContentType,
-          headers: {
-            'Authorization': 'Bearer ${ApiKey.secretKey}',
-          },
+          headers: headers ?? {'Authorization': 'Bearer ${ApiKey.secretKey}'},
         ));
     return response;
   }

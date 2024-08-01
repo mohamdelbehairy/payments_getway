@@ -6,6 +6,7 @@ import 'package:payments_getway/models/products_model.dart';
 
 import '../core/utils/helper/pay_using_card.dart';
 import '../core/utils/widgets/custom_button.dart';
+import '../views/success_view.dart';
 
 class PaymentWaysButton extends StatelessWidget {
   const PaymentWaysButton(
@@ -18,7 +19,13 @@ class PaymentWaysButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<StripPaymentCubit, StripPaymentState>(
       listener: (context, state) {
-        if (state is StripPaymentSuccess) {}
+        if (state is StripPaymentSuccess) {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => SuccessView(productsModel: productsModel),
+            ),
+          );
+        }
         if (state is StripPaymentFailure) {
           Navigator.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(
