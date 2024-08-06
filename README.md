@@ -1,16 +1,16 @@
-# payments_getway
+# Payments Getway
 
-A new Flutter project.
+***In this application, we have integrated payment functionality to facilitate online transactions. Here are the details on how the payment feature is implemented:***
 
-## Getting Started
+## Available Payment Methods
 
-This project is a starting point for a Flutter application.
+### ***1. Payment via Credit Card***:
 
-A few resources to get you started if this is your first Flutter project:
+***This feature allows users to make payments using their credit cards. We have used both Stripe and Paymob to provide secure and reliable credit card payment options.***
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [Strip: strip doucmentaion](https://docs.page/flutter-stripe/flutter_stripe)
+- [Paymob: paymob doucmentaion](https://paymob.com/)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 2. Payment via PayPal:
+
+***We have also integrated PayPal payment system, enabling users to make payments using their PayPal accounts in an easy and secure manner.***
