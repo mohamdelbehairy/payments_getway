@@ -30,7 +30,7 @@ class PaymobService {
       body: {
         "auth_token": authToken,
         "delivery_needed": "false",
-        "amount_cents": price,
+        "amount_cents": "1000",
         "currency": "EGP",
         "items": [],
       },
@@ -45,14 +45,14 @@ class PaymobService {
   }
 
   Future<String> paymentKey(
-      {required String price,
+      {required num price,
       required String orderID,
       required String authToken}) async {
     var response = await apiService.post(
       url: 'https://accept.paymob.com/api/acceptance/payment_keys',
       body: {
         "auth_token": authToken,
-        "amount_cents": price,
+        "amount_cents": 109,
         "expiration": 3600,
         "order_id": orderID,
         "billing_data": {
@@ -86,6 +86,6 @@ class PaymobService {
     var auth = await authentication();
     var order = await orderRegistration(authToken: auth.token!, price: price);
     return await paymentKey(
-        price: price, orderID: order.id!.toString(), authToken: auth.token!);
+        price: double.parse(price), orderID: order.id!.toString(), authToken: auth.token!);
   }
 }
